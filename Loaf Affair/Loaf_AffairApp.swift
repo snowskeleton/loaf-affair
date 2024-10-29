@@ -12,7 +12,8 @@ import SwiftData
 struct Loaf_AffairApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Household.self,
+            Distribution.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

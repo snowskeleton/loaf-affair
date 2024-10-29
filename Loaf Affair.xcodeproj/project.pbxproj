@@ -146,7 +146,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Loaf Affair/Loaf_Affair.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Loaf Affair/Preview Content\"";
 				DEVELOPMENT_TEAM = PK7HCG46US;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -177,7 +176,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Loaf Affair/Loaf_Affair.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Loaf Affair/Preview Content\"";
 				DEVELOPMENT_TEAM = PK7HCG46US;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
