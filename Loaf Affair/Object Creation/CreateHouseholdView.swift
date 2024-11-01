@@ -27,7 +27,9 @@ struct CreateHouseholdView: View {
     
     var body: some View {
         Form {
-            TextField("Enter name", text: $name)
+            Section("Name") {
+                TextField("Enter name", text: $name)
+            }
             
             Section(header: Text("Frequency")) {
                 TextField("Frequency", value: $frequency, format: .number)
