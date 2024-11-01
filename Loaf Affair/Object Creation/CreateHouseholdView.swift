@@ -24,6 +24,7 @@ struct CreateHouseholdView: View {
         _name = .init(initialValue: home.name)
         _frequency = .init(initialValue: home.frequency)
     }
+    
     var body: some View {
         Form {
             TextField("Enter name", text: $name)
@@ -42,18 +43,18 @@ struct CreateHouseholdView: View {
     }
     
     fileprivate func save() {
-        var newDistribution: Household
+        var newHousehold: Household
         if let home = home {
-            newDistribution = home
+            newHousehold = home
         } else {
-            newDistribution = Household()
+            newHousehold = Household()
         }
         
-        newDistribution.name = name
-        newDistribution.frequency = frequency
+        newHousehold.name = name
+        newHousehold.frequency = frequency
         
         if home == nil {
-            modelContext.insert(newDistribution)
+            modelContext.insert(newHousehold)
         }
         
         dismiss()
