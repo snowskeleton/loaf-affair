@@ -23,13 +23,6 @@ struct AllHouseholdsView: View {
     }
     var sortedHouses: [Household] {
         filteredHouses.sorted {
-            // Place households with zero frequency at the bottom
-            if $0.frequency == 0 && $1.frequency != 0 {
-                return false // $0 goes after $1
-            } else if $1.frequency == 0 && $0.frequency != 0 {
-                return true // $1 goes after $0
-            }
-            
             // Calculate days since the last distribution
             let lastDistributionDate1 = $0.distributions?.last?.date ?? Date.distantPast
             let lastDistributionDate2 = $1.distributions?.last?.date ?? Date.distantPast
