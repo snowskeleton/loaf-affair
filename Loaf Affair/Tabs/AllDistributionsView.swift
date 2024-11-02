@@ -21,6 +21,7 @@ struct AllDistributionsView: View {
                     } label: {
                         HStack {
                             Text(distribution.home?.name ?? "No name")
+                            Spacer()
                             Text("\(distribution.date, formatter: DateFormatter.short)")
                         }
                     }

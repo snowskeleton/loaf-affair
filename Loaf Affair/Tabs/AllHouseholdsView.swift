@@ -40,43 +40,69 @@ struct AllHouseholdsView: View {
     
     var body: some View {
         NavigationStack {
-            List(sortedHouses) { home in
-                HStack {
-                    NavigationLink {
-                        CreateHandoutView(home: home)
-                    } label: {
-                        VStack(alignment: .leading) {
-                            Text(home.name)
-                                .font(.headline)
-                            Text("Frequency: \(home.frequency, specifier: "%.1f")")
-                                .font(.subheadline)
-                            
-                            // Show last distribution date or "No distributions yet"
-                            if let lastDistribution = home.distributions?.last {
-                                Text("Last given on: \(lastDistribution.date, formatter: DateFormatter.short)")
-                                    .font(.subheadline)
-                            } else {
-                                Text("No distributions yet")
-                                    .font(.subheadline)
-                            }
-                        }
+            List {
+                Section {
+                    HStack {
+                        Text("Loavers")
+                            .font(.headline)
                         Spacer()
+                        Text("\(homes.count)")
                     }
                     
-                    Button("Edit") {
-                        editHome = home
+                    HStack {
+                        Text("\"Feels like\" Loavers")
+                            .font(.headline)
+                        Spacer()
+                        Text("\(homes.map { $0.frequency }.reduce(0, +), specifier: "%.1f")")
                     }
-                    .buttonStyle(BorderlessButtonStyle())
-
+                    
+                    
                 }
-                .swipeActions {
-                    Button("Quickie") {
-                        let newDistribution = Distribution()
-                        newDistribution.date = Date()
-                        newDistribution.home = home
-                        modelContext.insert(newDistribution)
+                ForEach(sortedHouses) { home in
+                    HStack {
+                        NavigationLink {
+                            CreateHandoutView(home: home)
+                        } label: {
+                            VStack(alignment: .leading) {
+                                Text(home.name)
+                                    .font(.headline)
+                                HStack {
+                                    Text("Frequency:")
+                                        .font(.subheadline)
+                                    Spacer()
+                                    Text("\(home.frequency, specifier: "%.1f")")
+                                }
+                                
+                                if let lastDistribution = home.distributions?.last {
+                                    HStack {
+                                        Text("Last rendezvous:")
+                                            .font(.subheadline)
+                                        Spacer()
+                                        Text("\(lastDistribution.date, formatter: DateFormatter.short)")
+                                    }
+                                } else {
+                                    Text("Life is short. Have a loaf affair.")
+                                        .font(.subheadline)
+                                }
+                            }
+                            Spacer()
+                        }
+                        
+                        Button("Edit") {
+                            editHome = home
+                        }
+                        .buttonStyle(BorderlessButtonStyle())
+                        
                     }
-                    .tint(.green)
+                    .swipeActions {
+                        Button("Quickie") {
+                            let newDistribution = Distribution()
+                            newDistribution.date = Date()
+                            newDistribution.home = home
+                            modelContext.insert(newDistribution)
+                        }
+                        .tint(.green)
+                    }
                 }
             }
             .searchable(text: $searchText)

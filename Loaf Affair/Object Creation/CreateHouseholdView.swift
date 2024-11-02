@@ -17,7 +17,8 @@ struct CreateHouseholdView: View {
     
     @State private var name: String = ""
     @State private var frequency: Double = 1.0
-    
+    @FocusState private var focuseName
+
     init () { }
     init(home: Household) {
         self.home = home
@@ -29,6 +30,10 @@ struct CreateHouseholdView: View {
         Form {
             Section("Name") {
                 TextField("Enter name", text: $name)
+                    .focused($focuseName)
+                    .onAppear {
+                        focuseName = true
+                    }
             }
             
             Section(header: Text("Frequency")) {
