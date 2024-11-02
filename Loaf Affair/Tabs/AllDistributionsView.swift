@@ -12,10 +12,17 @@ struct AllDistributionsView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Distribution.date, order: .reverse) private var distributions: [Distribution]
     
+    @State private var searchText: String = ""
+    var filteredDistributions: [Distribution] {
+        if searchText.isEmpty { return distributions }
+        return distributions.filter {
+            ($0.home?.name ?? "").lowercased().contains(searchText.lowercased())
+        }
+    }
     var body: some View {
         NavigationView {
             List {
-                ForEach(distributions) { distribution in
+                ForEach(filteredDistributions) { distribution in
                     NavigationLink {
                         CreateHandoutView(distribution: distribution)
                     } label: {
@@ -28,6 +35,7 @@ struct AllDistributionsView: View {
                 }
                 .onDelete(perform: delete)
             }
+            .searchable(text: $searchText)
             .navigationTitle("Rendezvouses")
         }
     }
