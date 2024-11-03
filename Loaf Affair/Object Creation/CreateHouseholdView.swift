@@ -12,7 +12,6 @@ struct CreateHouseholdView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
     
-//    @Query(sort: \Household.name, order: .forward) private var homes: [Household]
     var home: Household?
     
     @State private var name: String = ""
@@ -44,6 +43,14 @@ struct CreateHouseholdView: View {
             Button("Save") {
                 save()
             }
+            
+            if let home = home {
+                Section {
+                    Button("Delete", role: .destructive) {
+                        delete(home)
+                    }
+                }
+            }
 
         }
         .navigationTitle("Start an Affair")
@@ -67,4 +74,8 @@ struct CreateHouseholdView: View {
         dismiss()
     }
     
+    fileprivate func delete(_ home: Household) {
+        modelContext.delete(home)
+        dismiss()
+    }
 }

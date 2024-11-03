@@ -17,5 +17,9 @@ class Household: Identifiable {
     @Relationship
     var distributions: [Distribution]? = []
     
+    var lastDistribution: Distribution? {
+        distributions?.sorted(by: { $0.date > $1.date }).first
+    }
+    
     init() { }
 }

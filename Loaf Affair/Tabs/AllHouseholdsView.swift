@@ -24,8 +24,8 @@ struct AllHouseholdsView: View {
     var sortedHouses: [Household] {
         filteredHouses.sorted {
             // Calculate days since the last distribution
-            let lastDistributionDate1 = $0.distributions?.last?.date ?? Date.distantPast
-            let lastDistributionDate2 = $1.distributions?.last?.date ?? Date.distantPast
+            let lastDistributionDate1 = $0.lastDistribution?.date ?? Date.distantPast
+            let lastDistributionDate2 = $1.lastDistribution?.date ?? Date.distantPast
             let daysSinceLast1 = Date().timeIntervalSince(lastDistributionDate1) / (60 * 60 * 24)
             let daysSinceLast2 = Date().timeIntervalSince(lastDistributionDate2) / (60 * 60 * 24)
             
@@ -73,7 +73,7 @@ struct AllHouseholdsView: View {
                                     Text("\(home.frequency, specifier: "%.1f")")
                                 }
                                 
-                                if let lastDistribution = home.distributions?.last {
+                                if let lastDistribution = home.lastDistribution {
                                     HStack {
                                         Text("Last rendezvous:")
                                             .font(.subheadline)
