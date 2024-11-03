@@ -46,7 +46,7 @@ struct CreateHouseholdView: View {
             }
 
         }
-        .navigationTitle("New Distribution")
+        .navigationTitle("Start an Affair")
     }
     
     fileprivate func save() {

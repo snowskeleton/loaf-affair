@@ -43,7 +43,7 @@ struct CreateHandoutView: View {
                 }
             }
         }
-        .navigationTitle("Setup Rendezvous")
+        .navigationTitle(home?.name ?? "Rendezvous")
     }
     fileprivate func save() {
         var newDistribution: Distribution

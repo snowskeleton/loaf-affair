@@ -43,14 +43,14 @@ struct AllHouseholdsView: View {
             List {
                 Section {
                     HStack {
-                        Text("Loavers")
+                        Text("Total Loavers:")
                             .font(.headline)
                         Spacer()
                         Text("\(homes.count)")
                     }
                     
                     HStack {
-                        Text("\"Feels like\" Loavers")
+                        Text("\"Feels like\" Loavers:")
                             .font(.headline)
                         Spacer()
                         Text("\(homes.map { $0.frequency }.reduce(0, +), specifier: "%.1f")")
@@ -115,7 +115,7 @@ struct AllHouseholdsView: View {
                     }
                 }
             }
-            .navigationTitle("Loaf Affair")
+            .navigationTitle("Loavers")
             .navigationDestination(item: $editHome) { home in
                 CreateHouseholdView(home: home)
             }
