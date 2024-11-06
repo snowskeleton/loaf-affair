@@ -1,4 +1,6 @@
-#  Loaf Affair
+<img src="Loaf%20Affair/Assets.xcassets/AppIcon.appiconset/Logo.png" width=250>
+
+# Loaf Affair
 
 I make a lot of bread,
 and I share it with a lot of people.
