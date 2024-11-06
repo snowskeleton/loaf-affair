@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		80CD0AA32CDC1172002D8738 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 80CD0AA22CDC1172002D8738 /* README.md */; };
+		80CD0AA62CDC2038002D8738 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 80CD0AA42CDC2038002D8738 /* LICENSE */; };
+		80CD0AA72CDC2038002D8738 /* PRIVACY_POLICY.md in Resources */ = {isa = PBXBuildFile; fileRef = 80CD0AA52CDC2038002D8738 /* PRIVACY_POLICY.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		80CD0AA22CDC1172002D8738 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		80CD0AA42CDC2038002D8738 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		80CD0AA52CDC2038002D8738 /* PRIVACY_POLICY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRIVACY_POLICY.md; sourceTree = "<group>"; };
 		80D5774B2CCECF0300E1DA85 /* Loaf Affair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loaf Affair.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -51,6 +55,8 @@
 			isa = PBXGroup;
 			children = (
 				80CD0AA22CDC1172002D8738 /* README.md */,
+				80CD0AA42CDC2038002D8738 /* LICENSE */,
+				80CD0AA52CDC2038002D8738 /* PRIVACY_POLICY.md */,
 				80D5774D2CCECF0300E1DA85 /* Loaf Affair */,
 				80D5774C2CCECF0300E1DA85 /* Products */,
 			);
@@ -129,6 +135,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				80CD0AA32CDC1172002D8738 /* README.md in Resources */,
+				80CD0AA62CDC2038002D8738 /* LICENSE in Resources */,
+				80CD0AA72CDC2038002D8738 /* PRIVACY_POLICY.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
